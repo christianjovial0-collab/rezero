@@ -1,0 +1,378 @@
+:root {
+  --black: #0b0e16; /* fond principal, nuit du royaume de Lugnica */
+  --black-alt: #131a2c; /* fond des sections alternées */
+  --bg: #f4ecdb;
+  --bg-alt: #141d18;
+  --ink: #1c1714;
+  --card: #1a2238; /* fond des cartes */
+  --gris-cendre: #4a4a4a;
+  --blanc-os: #e8e4d8;
+  --sale: #ece4d3; /* texte clair, couleur "page de light novel" */
+  --white: #ffffff;
+  --white-alt: #9aa3bd; /* texte secondaire */
+  --ice: #7fd6ec; /* bleu glace — Emilia / Rem */
+  --ice-night: #1a1a3d;
+  --iceblue: #0b2f99; /* bleu de preference */
+  --purplel: #9b6fd6;
+  --purple: #6b2fa0;
+  --theme0: #fbff20;
+  --theme1: #fab128;
+  --theme2: #36178d;
+  --violet: linear-gradient(var(--blanc-os), var(--boucle));
+  --saison1: linear-gradient(var(--purple), var(--red), var(--ice));
+  --purples: #2d1b3d;
+  --boucle: #6b3fa0;
+  --red: #c2284a; /* rouge — Return by Death */
+  --sang: #a30019;
+  --sangs: #5c0a0a;
+  --gold: #da9a12; /* or — élection royale */
+  --vert: #6fb88a;
+  --sable: #d4a857;
+  --marron: #ad470be0;
+  --line: rgba(255, 255, 255, 0.08);
+  --font-display: "Cinzel", serif;
+  --font-body: "Work Sans", sans-serif;
+}
+
+/* GENERAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: var(--black);
+  color: var(--white);
+  letter-spacing: 1px;
+}
+p {
+  text-indent: 2em;
+  font-size: 1.2rem;
+  list-style: circle;
+}
+ul li {
+  margin: 10px;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-size: 1.2rem;
+}
+
+/* POUR LE THEME */
+[data-theme="dark"] {
+  --white: #0b0e16;
+  --black: #ffffff;
+}
+/* BOUTON THEME */
+#theme {
+  border: none;
+  float: left;
+  background: var(--white);
+  padding: 34px 5px;
+}
+
+/* HEADER */
+.header {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  background: var(--black);
+}
+.header::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: var(--white);
+}
+header a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* NAVIGATION */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+.bar-nav {
+  display: flex;
+  justify-content: space-around;
+  gap: 40px;
+  margin-right: 50px;
+}
+.bar-nav a {
+  color: var(--purple);
+  font-size: 1.2rem;
+}
+.bar-nav a:hover {
+  color: var(--ice);
+}
+
+/* LOGO RE:ZERO QUI RENVOIE A L'ACCUEIL */
+.logo {
+  font-size: 1.5rem;
+}
+.logo span {
+  color: var(--purple);
+}
+
+/* BURGER */
+/* .burger {
+  display: none;
+  cursor: pointer;
+}
+#burger {
+  display: none;
+} */
+
+/* HERO */
+.hero {
+  background: var(--black);
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: var(--white);
+}
+.hero-content {
+  display: block;
+  text-align: center;
+  margin-top: 63px;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
+    url(img/subaru/sub.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+.hero-head {
+  padding: 150px 0 50px;
+  color: var(--gold);
+  font-size: 25px;
+  font-weight: 700;
+}
+.hero-content h1 {
+  background: linear-gradient(#6b2fa0, #0d0712);
+  background-size: 1ch 1.2em;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  font-size: 2.5rem;
+  text-shadow: 0 0 5px var(--purple);
+  padding: 0 0 30px;
+}
+.hero-foot {
+  padding: 10px 0 50px;
+  color: var(--purple);
+}
+.counter {
+  display: inline-block;
+  color: var(--red);
+  border: 1px solid var(--red);
+  border-radius: 20px;
+  padding: 10px 15px;
+}
+
+/* SECTIONS */
+.section-head {
+  text-align: center;
+  margin: 40px 0 20px;
+  padding: 10px;
+  background: var(--violet);
+}
+.section-num {
+  color: var(--ice);
+}
+
+/* ==============================================================
+INFOS
+================================================================= */
+
+#infos {
+}
+div #pre-theme {
+}
+div .theme {
+  margin: 20px 0;
+  background: var(--white-alt);
+}
+div .theme h4 {
+  text-align: center;
+  margin-bottom: 10px;
+  background: linear-gradient(var(--white-alt), var(--theme2));
+  background-size: 1ch 1.2em;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  text-decoration: underline;
+}
+
+/* ==============================================================
+PERSONNAGES
+================================================================= */
+
+/* CHACUN */
+#subaru {
+  background: var(--marron);
+  border: 5px solid var(--marron);
+}
+#emilia {
+  background: var(--ice);
+  border: 5px solid var(--ice);
+}
+#rem {
+  background: var(--iceblue);
+  border: 5px solid var(--iceblue);
+}
+
+/* ENSEMBLE */
+.perso {
+  border-radius: 20px;
+  padding: 10px;
+  margin: 10px auto;
+}
+.perso-saisons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.perso-saison {
+  border: 10px solid var(--purple);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  margin: 5px 7px;
+  background-color: var(--purple);
+}
+.img-saison {
+  margin: 5px;
+  border: 5px solid var(--purplel);
+  background: var(--purplel);
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+.img-saison img {
+  width: 100%;
+}
+.info-pers {
+  text-align: center;
+  margin: 25px auto;
+}
+.info-pers h3 {
+  color: var(--gold);
+  font-size: 1.5rem;
+  margin: 10px auto;
+}
+
+/* ==============================================================
+RESUME
+================================================================= */
+.saison a {
+  color: var(--white-alt);
+}
+.saison {
+  margin: 50px 10px;
+}
+.saison h3 {
+  text-align: center;
+  margin: 10px;
+}
+.arc h4 {
+  margin: 10px;
+}
+.ep h5 {
+  text-align: center;
+  margin: 30px 10px;
+}
+#saison1 h3 {
+  color: var(--saison1);
+}
+#saison1 h4 {
+  color: var(--purple);
+}
+#saison1 h5 {
+  color: var(--purple);
+  opacity: 0.7;
+}
+/* ==============================================================
+BOUCLES
+================================================================= */
+
+div .num-boucle {
+  text-align: center;
+  background-color: var(--red);
+}
+.t-boucle {
+  text-align: center;
+  background-color: var(--red);
+  color: var(--gris-cendre);
+}
+div .mort-sub {
+  display: flex;
+}
+.raison-mort {
+  width: 100%;
+}
+.boucle {
+  text-shadow: 0 0 5px var(--ice);
+  margin: 10px 0;
+  display: flex;
+}
+.boucle a {
+  color: inherit;
+}
+.mort {
+  background-color: var(--sang);
+  color: var(--purples);
+  text-align: center;
+  font-weight: 700;
+}
+
+/* =================================================================
+RESPONSIVE
+==================================================================== */
+
+@media (max-width: 720px) {
+  .logo {
+    font-size: 1.2rem;
+  }
+  #theme {
+    padding: 31px 5px;
+  }
+  .bar-nav {
+    gap: 30px;
+    margin-right: 0;
+  }
+  .bar-nav a {
+    font-size: 1rem;
+  }
+  .hero-content {
+    margin-top: 63px;
+  }
+}
+
+:target {
+  animation: hightlight-fade 2s ease-in-out;
+}
+@keyframes hightlight-fade {
+  0% {
+    background: blue;
+  }
+  100% {
+    background: transparent;
+  }
+}
