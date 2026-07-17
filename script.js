@@ -1,22 +1,30 @@
 const toogle = document.getElementById("theme");
 const root = document.documentElement;
 
-// recupere la preference sauvegardée, sinon celle du systeme
-// const saved = localStorage.getItem('theme');
-// const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-// const initial = saved || (prefersDark ? 'dark' : 'light');
-// root.setAttribute('data-theme', initial);
-// updateButton(initial);
-
 toogle.addEventListener("click", () => {
   const current = root.getAttribute("data-theme");
   const next = current === "dark" ? "light" : "dark";
   root.setAttribute("data-theme", next);
-  // localStorage.setItem('theme', next);
-  // updateButton(next);
-  //   toogle.textContent = next === "dark" ? "🌞" : "🌙";
 });
 
-// function updateButton(theme) {
-//     toogle.textContent = theme == 'dark' ? '🌞' : '🌙';
-// }
+// const toggleBtn = document.querySelector('#theme');
+
+// toggleBtn.addEventListener('click', () => {
+//   document.body.classlist.toggle('dark-mode');
+// });
+
+//========================== BURGER =============================
+
+const burger = document.querySelector('#burger')
+const nav = document.querySelector('nav')
+
+burger.addEventListener('click', function() {
+    nav.classList.toggle('open')
+})
+
+document.addEventListener('click', function (e) {
+    if (!nav.contains(e.target) && e.target !== burger) {
+        nav.classList.remove('open')
+    }
+})
+

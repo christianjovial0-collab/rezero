@@ -34,21 +34,29 @@
   --font-body: "Work Sans", sans-serif;
 }
 
-/* GENERAL */
+
+/*================================================================ 
+  GENERAL --------------------------------------------------------
+  ================================================================*/
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px ;
+}
 body {
   background: var(--black);
   color: var(--white);
   letter-spacing: 1px;
+  font-size: 1.2rem;
 }
 p {
   text-indent: 2em;
-  font-size: 1.2rem;
-  list-style: circle;
+  margin: auto 5px;
 }
 ul li {
   margin: 10px;
@@ -65,8 +73,36 @@ h5 {
 [data-theme="dark"] {
   --white: #0b0e16;
   --black: #ffffff;
+  --black-alt: #9aa3bd;
+  --white-alt: #131a2c;
 }
-/* BOUTON THEME */
+
+/* body.dark-mode {
+  --white: #0b0e16;
+  --black: #ffffff;
+} */
+
+/* ========================================================================
+    HEADER ----------------------------------------------------------------
+  =========================================================================*/
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  background: var(--black);
+  border-bottom: 1px solid var(--white);
+  display: flex;
+  justify-content: space-between;
+}
+
+header a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/*==================== BOUTON THEME ==========================*/
 #theme {
   border: none;
   float: left;
@@ -74,66 +110,62 @@ h5 {
   padding: 34px 5px;
 }
 
-/* HEADER */
-.header {
-  position: fixed;
-  top: 0;
-  z-index: 100;
-  width: 100%;
-  background: var(--black);
-}
-.header::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 1px;
-  background: var(--white);
-}
-header a {
-  color: inherit;
-  text-decoration: none;
+/*==================== BOUTON BURGER ========================*/
+#burger {
+  display: none;
+  cursor: pointer;
 }
 
-/* NAVIGATION */
-.nav {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
-}
-.bar-nav {
+
+/*======================= NAVIGATION =======================*/
+
+nav {
   display: flex;
   justify-content: space-around;
-  gap: 40px;
-  margin-right: 50px;
+  gap: 0px;
+  padding: 20px;
+  margin-right: 100px;
 }
-.bar-nav a {
+
+nav a {
+  border-radius: 10px;
   color: var(--purple);
   font-size: 1.2rem;
+  padding: 0px 20px;
+  transition: box-shadow 0.2s, font-size 0.2s ease-in-out;
 }
-.bar-nav a:hover {
+nav a:hover {
+  box-shadow: 0 5px 5px var(--boucle);
+  font-size: 1.5rem;
   color: var(--ice);
 }
 
-/* LOGO RE:ZERO QUI RENVOIE A L'ACCUEIL */
+/*=============== LOGO RE:ZERO QUI RENVOIE A L'ACCUEIL ======================*/
 .logo {
   font-size: 1.5rem;
+  padding: 20px;
+}
+.logo:hover {
+  text-shadow: 0 0 20px var(--white);
 }
 .logo span {
   color: var(--purple);
 }
 
-/* BURGER */
-/* .burger {
-  display: none;
-  cursor: pointer;
-}
-#burger {
-  display: none;
-} */
 
-/* HERO */
+/*================================================================= 
+  HERO -----------------------------------------------------------
+  =================================================================*/
+
 .hero {
-  background: var(--black);
+  background: linear-gradient(90deg,
+  purple 0%,
+  purple 10%,
+  white 25%, 
+  white 75%,
+  purple 90%,
+  purple 100%);
+
 }
 .hero::after {
   content: "";
@@ -145,7 +177,6 @@ header a {
 .hero-content {
   display: block;
   text-align: center;
-  margin-top: 63px;
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
     url(img/subaru/sub.jpg);
@@ -195,16 +226,12 @@ header a {
 }
 
 /* ==============================================================
-INFOS
+INFOS -----------------------------------------------------------
 ================================================================= */
 
-#infos {
-}
-div #pre-theme {
-}
 div .theme {
   margin: 20px 0;
-  background: var(--white-alt);
+  background: var(--black-alt);
 }
 div .theme h4 {
   text-align: center;
@@ -220,10 +247,10 @@ div .theme h4 {
 }
 
 /* ==============================================================
-PERSONNAGES
+PERSONNAGES ------------------------------------------------------
 ================================================================= */
 
-/* CHACUN */
+/*========================= CHACUN ============================*/
 #subaru {
   background: var(--marron);
   border: 5px solid var(--marron);
@@ -237,19 +264,18 @@ PERSONNAGES
   border: 5px solid var(--iceblue);
 }
 
-/* ENSEMBLE */
-.perso {
+/*============================ ENSEMBLE ==========================*/
+.personnage {
   border-radius: 20px;
   padding: 10px;
   margin: 10px auto;
 }
-.perso-saisons {
+.perso-tout-saison {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
   align-items: center;
 }
-.perso-saison {
+.perso-par-saison {
   border: 10px solid var(--purple);
   border-radius: 20px;
   display: flex;
@@ -263,6 +289,7 @@ PERSONNAGES
   background: var(--purplel);
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 200px;
 }
 .img-saison img {
@@ -279,7 +306,7 @@ PERSONNAGES
 }
 
 /* ==============================================================
-RESUME
+RESUME -----------------------------------------------------------
 ================================================================= */
 .saison a {
   color: var(--white-alt);
@@ -309,31 +336,30 @@ RESUME
   opacity: 0.7;
 }
 /* ==============================================================
-BOUCLES
+BOUCLES -----------------------------------------------------------
 ================================================================= */
 
 div .mort {
-  text-shadow: 0 0 5px var(--ice);
-  margin: 10px 0;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  background: var(--black-alt);
+  margin: 10px 0;
+  text-shadow: 0 0 5px var(--ice);
+}
+.img-mort{
+  background: var(--gris-cendre);
+  border: 5px solid var(--gris-cendre);
+  height: 100%;
 }
 .img-mort img {
-  width: auto;
-  height: auto;
+  width: 150px;
+}
+div .text-mort {
+  width: 100%;
 }
 div .num-mort {
   text-align: center;
   background-color: var(--red);
-}
-div .raison-mort {
-  width: 100%;
-}
-p .raison {
-  text-align: center;
-  background-color: var(--red);
-  color: var(--gris-cendre);
 }
 .meurt {
   background-color: var(--sang);
@@ -342,37 +368,175 @@ p .raison {
   font-weight: 700;
 }
 
+
 /* =================================================================
-RESPONSIVE
+RESPONSIVE ---------------------------------------------------------
 ==================================================================== */
 
-@media (max-width: 720px) {
-  .logo {
-    font-size: 1.2rem;
+@media (max-width: 500px) {
+
+  /*============================================================ 
+    GENERAL 
+    ============================================================*/
+  body {
+    letter-spacing: 0.5px;
+    font-size: 0.8rem;
   }
-  #theme {
-    padding: 31px 5px;
+
+  p {
+    text-indent: 1em;
+    margin: auto 3px;
   }
-  .bar-nav {
-    gap: 30px;
-    margin-right: 0;
-  }
-  .bar-nav a {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+
     font-size: 1rem;
   }
-  .hero-content {
-    margin-top: 63px;
+
+  /*=========================================================== 
+    HEADER 
+    ===========================================================*/
+
+  /*======================= BOUTON THEME =======================*/
+  #theme {
+    background: var(--white);
+    height: 100%;
+    order: 2;
   }
+
+  /*======================= NAVIGATION ==========================*/
+  nav {
+    display: none;
+    flex-direction: column;
+    order: 1;
+    float: left;
+    gap: 10px;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 1s ease;
+    margin-top: 40px;
+  }
+  nav.open {
+    display: flex;
+    opacity: 1;
+  }
+  nav a {
+    margin: 0;
+    font-size: 0.8rem;
+  }
+  nav a:hover {
+    font-size: 1rem;
+  }
+
+  /*============== LOGO RE:ZERO QUI RENVOIE A L'ACCUEIL ===============*/
+  .logo {
+    font-size: 1rem;
+    order: 4;
+  }
+
+  /*========================== BURGER ============================*/
+  #burger {
+    display: flex;
+    border: none;
+    border-radius: 0 5px 5px 0px;
+    padding: 5px 10px;
+    margin: 17px 10px;
+    background: var(--purple);
+    order: 3;
+  }
+  #burger:hover {
+    background: var(--purplel);
+  }
+
+
+  /* ==============================================================
+INFOS 
+================================================================= */
+
+div .theme {
+  margin: 20px 0;
+}
+div .theme h4 {
+  margin-bottom: 10px;
 }
 
-:target {
-  animation: hightlight-fade 2s ease-in-out;
+/* ==============================================================
+PERSONNAGES 
+================================================================= */
+
+/*=========================== CHACUN ================================*/
+#subaru {
+  border: 2px solid var(--marron);
 }
-@keyframes hightlight-fade {
-  0% {
-    background: blue;
-  }
-  100% {
-    background: transparent;
-  }
+#emilia {
+  border: 2px solid var(--ice);
 }
+#rem {
+  border: 2px solid var(--iceblue);
+}
+
+/*======================== ENSEMBLE =================================*/
+.personnage {
+  border-radius: 10px;
+  padding: 5px;
+  margin: 5px auto;
+}
+.perso-par-saison {
+  border: 2px solid var(--purple);
+  border-radius: 5px;
+  margin: 2px 2px;
+}
+.img-saison {
+  margin: 1px;
+  border: 2px solid var(--purplel);
+  width: 75px;
+}
+.img-saison img {
+  width: 100%;
+}
+.img-saison p {
+  font-size: 0.5rem;
+}
+.info-pers {
+  margin: 10px auto;
+}
+.info-pers h3 {
+  font-size: 1rem;
+  margin: 0px auto;
+}
+
+
+  /*==============================================================
+    BOUCLES 
+    ================================================================= */
+
+.img-mort{
+  border: 2px solid var(--gris-cendre);
+  height: 100%;
+}
+
+.img-mort img {
+  width: 75px;
+}
+
+}
+
+
+  /*==================================================================
+     ANIMATION AU CLIC DU LIEN 
+    ==================================================================*/
+  :target {
+    animation: hightlight-fade 2s ease-in-out;
+  }
+  @keyframes hightlight-fade {
+    0% {
+      background: blue;
+    }
+    100% {
+      background: transparent;
+    }
+  }
