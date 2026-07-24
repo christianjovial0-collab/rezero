@@ -34,7 +34,6 @@
   --font-body: "Work Sans", sans-serif;
 }
 
-
 /*================================================================ 
   GENERAL --------------------------------------------------------
   ================================================================*/
@@ -46,7 +45,7 @@
 }
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px ;
+  scroll-padding-top: 80px;
 }
 body {
   background: var(--black);
@@ -116,7 +115,6 @@ header a {
   cursor: pointer;
 }
 
-
 /*======================= NAVIGATION =======================*/
 
 nav {
@@ -132,7 +130,10 @@ nav a {
   color: var(--purple);
   font-size: 1.2rem;
   padding: 0px 20px;
-  transition: box-shadow 0.2s, font-size 0.2s ease-in-out;
+  transition:
+    box-shadow 0.2s,
+    font-size 0.2s,
+    color 0.2s ease-in-out;
 }
 nav a:hover {
   box-shadow: 0 5px 5px var(--boucle);
@@ -152,20 +153,20 @@ nav a:hover {
   color: var(--purple);
 }
 
-
 /*================================================================= 
   HERO -----------------------------------------------------------
   =================================================================*/
 
 .hero {
-  background: linear-gradient(90deg,
-  purple 0%,
-  purple 10%,
-  white 25%, 
-  white 75%,
-  purple 90%,
-  purple 100%);
-
+  background: linear-gradient(
+    90deg,
+    purple 0%,
+    purple 10%,
+    white 25%,
+    white 75%,
+    purple 90%,
+    purple 100%
+  );
 }
 .hero::after {
   content: "";
@@ -346,7 +347,7 @@ div .mort {
   margin: 10px 0;
   text-shadow: 0 0 5px var(--ice);
 }
-.img-mort{
+.img-mort {
   background: var(--gris-cendre);
   border: 5px solid var(--gris-cendre);
   height: 100%;
@@ -368,13 +369,11 @@ div .num-mort {
   font-weight: 700;
 }
 
-
 /* =================================================================
 RESPONSIVE ---------------------------------------------------------
 ==================================================================== */
 
-@media (max-width: 500px) {
-
+@media (max-width: 480px) {
   /*============================================================ 
     GENERAL 
     ============================================================*/
@@ -393,7 +392,6 @@ RESPONSIVE ---------------------------------------------------------
   h3,
   h4,
   h5 {
-
     font-size: 1rem;
   }
 
@@ -452,91 +450,103 @@ RESPONSIVE ---------------------------------------------------------
     background: var(--purplel);
   }
 
-
   /* ==============================================================
 INFOS 
 ================================================================= */
 
-div .theme {
-  margin: 20px 0;
-}
-div .theme h4 {
-  margin-bottom: 10px;
-}
+  div .theme {
+    margin: 20px 0;
+  }
+  div .theme h4 {
+    margin-bottom: 10px;
+  }
 
-/* ==============================================================
+  /* ==============================================================
 PERSONNAGES 
 ================================================================= */
 
-/*=========================== CHACUN ================================*/
-#subaru {
-  border: 2px solid var(--marron);
-}
-#emilia {
-  border: 2px solid var(--ice);
-}
-#rem {
-  border: 2px solid var(--iceblue);
-}
+  /*=========================== CHACUN ================================*/
+  #subaru {
+    border: 2px solid var(--marron);
+  }
+  #emilia {
+    border: 2px solid var(--ice);
+  }
+  #rem {
+    border: 2px solid var(--iceblue);
+  }
 
-/*======================== ENSEMBLE =================================*/
-.personnage {
-  border-radius: 10px;
-  padding: 5px;
-  margin: 5px auto;
-}
-.perso-par-saison {
-  border: 2px solid var(--purple);
-  border-radius: 5px;
-  margin: 2px 2px;
-}
-.img-saison {
-  margin: 1px;
-  border: 2px solid var(--purplel);
-  width: 75px;
-}
-.img-saison img {
-  width: 100%;
-}
-.img-saison p {
-  font-size: 0.5rem;
-}
-.info-pers {
-  margin: 10px auto;
-}
-.info-pers h3 {
-  font-size: 1rem;
-  margin: 0px auto;
-}
-
+  /*======================== ENSEMBLE =================================*/
+  .personnage {
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px auto;
+  }
+  .perso-par-saison {
+    border: 2px solid var(--purple);
+    border-radius: 5px;
+    margin: 2px 2px;
+  }
+  .img-saison {
+    margin: 1px;
+    border: 2px solid var(--purplel);
+    width: 75px;
+  }
+  .img-saison img {
+    width: 100%;
+  }
+  .img-saison p {
+    font-size: 0.5rem;
+  }
+  .info-pers {
+    margin: 10px auto;
+  }
+  .info-pers h3 {
+    font-size: 1rem;
+    margin: 0px auto;
+  }
 
   /*==============================================================
     BOUCLES 
     ================================================================= */
 
-.img-mort{
-  border: 2px solid var(--gris-cendre);
-  height: 100%;
+  .img-mort {
+    border: 2px solid var(--gris-cendre);
+    height: 100%;
+  }
+
+  .img-mort img {
+    width: 75px;
+  }
 }
 
-.img-mort img {
-  width: 75px;
-}
-
-}
-
-
-  /*==================================================================
+/*==================================================================
      ANIMATION AU CLIC DU LIEN 
     ==================================================================*/
-  :target {
-    animation: hightlight-fade 2s ease-in-out;
+
+[id] {
+  position: relative;
+}
+
+.flash::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgb(4, 0, 255);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.flash::after {
+  animation: flashHighlight 2s ease-out forwards;
+}
+
+@keyframes flashHighlight {
+  0% {
+    opacity: 1;
   }
-  @keyframes hightlight-fade {
-    0% {
-      background: blue;
-    }
-    100% {
-      background: transparent;
-    }
+  100% {
+    opacity: 0;
   }
+}
